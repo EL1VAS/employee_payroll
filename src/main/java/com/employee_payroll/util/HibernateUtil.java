@@ -5,6 +5,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import com.employee_payroll.model.Department;
 import com.employee_payroll.model.Employee;
 
 public class HibernateUtil {
@@ -18,6 +19,7 @@ public class HibernateUtil {
             try {
                 sessionFactory = new MetadataSources(registry)
                     .addAnnotatedClass(Employee.class)
+                    .addAnnotatedClass(Department.class)
                     .buildMetadata()
                     .buildSessionFactory();
             } catch (Exception e) {
